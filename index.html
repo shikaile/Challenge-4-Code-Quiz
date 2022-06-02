@@ -10,16 +10,17 @@
 <body>
     <header class="fixedHeader" id="header">
         <div id="highscore"> 
-            <a href="">highscore</a>
+            <a href="">highscores</a>
         </div>
+        <div>Time Left</div>
         <div id="timer">60</div>
     </header>
 
-    <section class="intro" id="start">
+    <section class="intro">
         <h2>Coding Quiz</h2>
         <p>To begin the quiz and start the timer click the button below.</p>
         <p>The game is over when the timer hits 0, answer wrong and 10 seconds will be deducted!</p>
-        <button class="btn">Start Game</button>
+        <button class="btn" id="start">Start Game</button>
     </section>
     <section class="quiz">
         <div class="quiz-question" id="question"></div>
@@ -29,6 +30,7 @@
         <button class="btn" id="option-d"></button>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
