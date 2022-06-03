@@ -9,6 +9,11 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
+var count = 0;
+var time = 60;
+var marks = 0;
+var answer = [];
+
 var timer = function(){
     var sec = 60;
     var timer = setInterval(function(){
@@ -24,9 +29,20 @@ $("#start").click(function(){
     $(".intro").hide();
     $(".quiz").show();
     timer();
+    questionFlow();
 });
 
-// $("#start").click(function(){
-//     timer();
-// });
+let queCount = 0;
+
+var questionFlow = function() {
+    let queFlow = '<h3>' + questions[0].question + '</h3>';
+    $("#question") = queFlow;
+// $("#option-a").text(data[i].option-a)
+// $("#option-b").text(data[i].option-b)
+// $("#option-c").text(data[i].option-c)
+// $("#option-d").text(data[i].option-d)
+};
+
+
+
 
