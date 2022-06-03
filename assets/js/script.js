@@ -10,6 +10,20 @@
 // WHEN the game is over
 // THEN I can save my initials and score
 
-$("#start").on("click", function(){
+$("#start").click(function(){
     $(".intro").hide();
 })
+
+$("#start").click(function(){
+    $(".quiz").show();
+})
+
+var timer = function(){
+    var sec = 60;
+    var timer = setInterval(function(){
+        $('#timer').innerHTML='00:'+sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timer);
+        }
+    }, 1000)}
