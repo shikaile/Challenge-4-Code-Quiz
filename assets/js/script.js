@@ -9,21 +9,24 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
-
-$("#start").click(function(){
-    $(".intro").hide();
-})
-
-$("#start").click(function(){
-    $(".quiz").show();
-})
-
 var timer = function(){
     var sec = 60;
     var timer = setInterval(function(){
-        $('#timer').innerHTML='00:'+sec;
+        $('#timeLeft').html('00:'+sec);
         sec--;
-        if (sec < 0) {
-            clearInterval(timer);
+        if (sec <= 0) {
+            $('#timeLeft').html('No Time Left');
         }
-    }, 1000)}
+    }, 1000)};
+
+    //hides intro, displays quiz, starts timer
+$("#start").click(function(){
+    $(".intro").hide();
+    $(".quiz").show();
+    timer();
+});
+
+// $("#start").click(function(){
+//     timer();
+// });
+
