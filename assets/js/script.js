@@ -9,10 +9,13 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
-var count = 0;
-var time = 60;
-var marks = 0;
-var answer = [];
+
+const questionElement = $("#question");
+const optionButtons = $("#options")
+var score = 0;
+let randomOrder, currentQuestion;
+let count = 0
+
 
 var timer = function(){
     var sec = 60;
@@ -24,25 +27,44 @@ var timer = function(){
         }
     }, 1000)};
 
-    //hides intro, displays quiz, starts timer
+        //hides intro, displays quiz, starts timer
+   
 $("#start").click(function(){
     $(".intro").hide();
     $(".quiz").show();
+    randomOrder = questions.sort(() => Math.random() - .5)
+    currentQuestion = 0;
     timer();
-    questionFlow();
+    questionFlow(0);
 });
 
-let queCount = 0;
-
 var questionFlow = function() {
-    let queFlow = '<h3>' + questions[0].question + '</h3>';
-    $("#question") = queFlow;
-// $("#option-a").text(data[i].option-a)
-// $("#option-b").text(data[i].option-b)
-// $("#option-c").text(data[i].option-c)
-// $("#option-d").text(data[i].option-d)
+    displayQuestion(randomOrder[currentQuestion])
 };
 
+var displayQuestion =  function(index){
+    const que = $("#question");
+    // const option = option_list.querySelectorAll(".option");
+
+    let quest = '<h3>'+ questions[0].question +'</h3>';
+    let opts = '<button class="btn">'+ questions[0].options[0] +'</button>'
+    + '<button class="btn">'+ questions[0].options[1] +'</button>'
+    + '<button class="btn">'+ questions[0].options[2] +'</button>'
+    + '<button class="btn">'+ questions[0].options[3] +'</button>';
+    
+    $(que).append(quest);
+    $(optionButtons).append(opts);
+
+    const option = optionButtons.querySelectorAll(".btn");
+
+    // set onclick attribute to all available options
+    for(i=0; i < option.length; i++){
+        option[i].setAttribute("onclick", "optionSelected(this)");
+    }
+}
+
+
+    
 
 
 

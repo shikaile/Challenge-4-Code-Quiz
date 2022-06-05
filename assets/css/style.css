@@ -25,9 +25,10 @@ body{
     margin: 5px;
     padding: 10px;
     border-radius: 50px;
-    font-size: larger;
+    font-size: small;
     background-color: lightslategrey;
     justify-content:space-between;
+    color: white;
     text-align: center;
 }
 .btn:hover{
@@ -39,4 +40,20 @@ body{
 }
 .quiz{
     display: none;
+}
+.quiz-question{
+    padding-top: 300px;
+    background-color:whitesmoke;
+    width: 600px;
+    height: 500px;
+}
+.question{
+    text-align: center;
+}
+.options{
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: center;
+   align-items: center; 
+   max-width: 100%;
 }
