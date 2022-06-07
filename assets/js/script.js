@@ -1,6 +1,4 @@
-//GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
+
 // WHEN I answer a question
 // THEN I am presented with another question
 // WHEN I answer a question incorrectly
@@ -47,21 +45,22 @@ var questionOrder = function() {
     displayQuestion(randomOrder[currentQuestion])
 };
 
-var questionFlow = function(){
-    if (queue.length === 0 || count >= questionLimit) {
-        console.log('no more questions');
-    }
-    count++;
+// variable function not working ---------------------------
+// var questionFlow = function(){
+//     if (queue.length === 0 || count >= questionLimit) {
+//         console.log('no more questions');
+//     }
+//     count++;
     
-    const questionList = Math.floor(Math.random() * queue.length);
-    currentQuestion = quene[questionList];
-    $(questionElement).append(currentQuestion.question);
+//     const questionList = Math.floor(Math.random() * queue.length);
+//     currentQuestion = quene[questionList];
+//     $(questionElement).append(currentQuestion.question);
 
-    optionButtons.array.forEach(options => {
+//     optionButtons.array.forEach(options => {
         
-        $(optionButtons).append
-    });
-}
+//         $(optionButtons).append
+//     });
+// };
 
 var displayQuestion =  function(index){
     
@@ -82,49 +81,55 @@ var displayQuestion =  function(index){
     }
 };
 
-var optionSelected = function(answer){
+// variable function not working ---------------------------
+// var optionSelected = function(answer){
 
-    let selection = answer.textContent; //getting user selected option
-    let correctSelection = questions[count].answer; //getting correct answer from array
-    const possibleOptions = optionButtons.children.length; //getting all option items
+//     let selection = answer.textContent; //getting user selected option
+//     let correctSelection = questions[count].answer; //getting correct answer from array
+//     const possibleOptions = optionButtons.children.length; //getting all option items
     
-    if(selection == correctSelection){ //if user selected option is equal to array's correct answer
-        userScore += 1; //upgrading score value with 1
-        //adding green background to correct selected option
-        console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
-    }else{
-         //adding red background to correct selected option
-        console.log("Wrong Answer");
-        for(i=0; i < possibleOptions; i++){
-            if(optionButtons.children[i].textContent == correctSelection){ //if there is an option which is matched to an array answer 
-            console.log("Auto selected correct answer.");
-            }
-        }
-    }
-    for(i=0; i < possibleOptions; i++){
-        if (optionButtons.children[i].textContent == correctSelection){
-            console.log("answer has been given")
-        }; //once user select an option then disabled all options
-    }
-// add function call to go to next question
-}
+//     if(selection == correctSelection){ //if user selected option is equal to array's correct answer
+//         userScore += 1; //upgrading score value with 1
+//         //adding green background to correct selected option
+//         console.log("Correct Answer");
+//         console.log("Your correct answers = " + userScore);
+//     }else{
+//          //adding red background to correct selected option
+//         console.log("Wrong Answer");
+//         for(i=0; i < possibleOptions; i++){
+//             if(optionButtons.children[i].textContent == correctSelection){ //if there is an option which is matched to an array answer 
+//             console.log("Auto selected correct answer.");
+//             }
+//         }
+//     }
+//     for(i=0; i < possibleOptions; i++){
+//         if (optionButtons.children[i].textContent == correctSelection){
+//             console.log("answer has been given")
+//         }; //once user select an option then disabled all options
+//     }
+// // add function call to go to next question
+// }
 
-    for(i=0; i < possibleOptions; i++){
-        optionButtons.children[i].classList.add("disabled"); //once user select an option then disabled all options
-};
+//     for(i=0; i < possibleOptions; i++){
+//         optionButtons.children[i].classList.add("disabled"); //once user select an option then disabled all options
+// };
 
-choices.forEach(choice => {
-$(choices).on("click", function(userchoice) {
+
+// event liostener for all choices not working ---------------------------
+
+// choices.forEach(choice => {
+// $(choices).on("click", function(userchoice) {
     
-    currentQuestion++
-    questionOrder()
-})
-});
+//     currentQuestion++
+//     questionOrder()
+// })
+// });
 
-var showAnswer = function(){
-    console.log('the answer is');
-}
+// variable function to highligh background of correct and incorrect answer not working ---------------------------
+
+// var showAnswer = function(){
+//     console.log('the answer is');
+// }
 
 
 
