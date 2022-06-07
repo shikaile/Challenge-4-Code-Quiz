@@ -31,13 +31,11 @@ body{
     color: white;
     text-align: center;
 }
-.btn:hover{
-    margin: 5px;
-    padding: 10px;
-    border-radius: 50px;
-    font-size: larger;
-    background-color: lightseagreen;
+
+section .options .btn.disabled{
+    pointer-events: none;
 }
+
 .quiz{
     display: none;
 }
