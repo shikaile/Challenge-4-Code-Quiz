@@ -1,7 +1,7 @@
 // array and passing the number, questions, options, and answers
 let questions = [
     {
-    numb: 1,
+    numb: 0,
     question: "What does HTML stand for?",
     answer: "Hyper Text Markup Language",
     options: [
@@ -12,7 +12,7 @@ let questions = [
     ]
   },
     {
-    numb: 2,
+    numb: 1,
     question: "What does CSS stand for?",
     answer: "Cascading Style Sheet",
     options: [
@@ -23,7 +23,7 @@ let questions = [
     ]
   },
     {
-    numb: 3,
+    numb: 2,
     question: "What does PHP stand for?",
     answer: "Hypertext Preprocessor",
     options: [
@@ -34,7 +34,7 @@ let questions = [
     ]
   },
     {
-    numb: 4,
+    numb: 3,
     question: "What does SQL stand for?",
     answer: "Structured Query Language",
     options: [
@@ -45,7 +45,7 @@ let questions = [
     ]
   },
     {
-    numb: 5,
+    numb: 4,
     question: "What does XML stand for?",
     answer: "eXtensible Markup Language",
     options: [
@@ -57,7 +57,7 @@ let questions = [
   },
 
     {
-    numb: 6,
+    numb: 5,
     question: "If BEAT is coded as ‘EHDW’, how will you code ROAD ?",
     answer: "URDG",
     options: [
@@ -69,7 +69,7 @@ let questions = [
   },
 
     {
-    numb: 7,
+    numb: 6,
     question: "_______ is the process of finding errors and fixing them within a program.",
     answer: "Debugging",
     options: [
@@ -81,7 +81,7 @@ let questions = [
   },
 
     {
-    numb: 8,
+    numb: 7,
     question: "What is the element called that can continue to execute a block of code as long as the specified condition remains TRUE?",
     answer: "Loop",
     options: [
@@ -93,7 +93,7 @@ let questions = [
   },
 
     {
-    numb: 9,
+    numb: 8,
     question: "In JavaScript, what element is used to store and manipulate text, usually in multiples?",
     answer: "Arrays",
     options: [
@@ -105,7 +105,7 @@ let questions = [
   },
 
     {
-    numb: 10,
+    numb: 9,
     question: "Where is the JavaScript placed inside an HTML document or page?",
     answer: "In the <body> and <head> sections.",
     options: [

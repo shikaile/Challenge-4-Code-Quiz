@@ -7,6 +7,10 @@ body{
     background-color: bisque;
 }
 
+.hide {
+    display: none;
+}
+
 .fixedHeader{
     position: fixed;
     top: 0;
@@ -31,6 +35,16 @@ body{
     color: white;
     text-align: center;
 }
+.optionButton{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: small;
+    background-color: lightslategrey;
+    justify-content:space-between;
+    color: white;
+    text-align: center;
+}
 
 section .options .btn.disabled{
     pointer-events: none;
@@ -40,10 +54,12 @@ section .options .btn.disabled{
     display: none;
 }
 .quiz-question{
+    display: flex;
+    flex-flow: column wrap;
     padding-top: 300px;
-    background-color:whitesmoke;
     width: 600px;
     height: 500px;
+    align-items: center;
 }
 .question{
     text-align: center;
@@ -54,4 +70,14 @@ section .options .btn.disabled{
    justify-content: center;
    align-items: center; 
    max-width: 100%;
+}
+.option-selected{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: small;
+    background-color:steelblue;
+    justify-content:space-between;
+    color: white;
+    text-align: center;
 }
