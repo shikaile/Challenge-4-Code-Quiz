@@ -60,32 +60,27 @@ var displayQuestion = ()=> {
 };
 
 //  function to show correct answer upon selection and move to next quesrion not working ---------------------------
-var optionSelected = function(answer){
+var optionSelected = (answer)=> {
 
-    let selection = answer.textContent; //getting user selected option
+    let selection = $("#options").click; //getting user selected option
     let correctSelection = questions[numb].answer; //getting correct answer from array
-    const possibleOptions = optionButtons.children.length; //getting all option items
+    
+    const possibleOptions = $("#options").children.length; //getting all option items
     
     if(selection == correctSelection){ //if user selected option is equal to array's correct answer
-        userScore += 1; //upgrading score value with 1
+        // userScore += 1; //upgrading score value with 1
         //adding green background to correct selected option
         console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
+        // console.log("Your correct answers = " + userScore);
     }else{
          //adding red background to correct selected option
         console.log("Wrong Answer");
-        for(i=0; i < possibleOptions; i++){
-            if(optionButtons.children[i].textContent == correctSelection){ //if there is an option which is matched to an array answer 
-            console.log("Auto selected correct answer.");
-            }
-        }
+        // for(i=0; i < possibleOptions; i++){
+        //     if($("#options").children[i].html == correctSelection){ //if there is an option which is matched to an array answer 
+        //     console.log("Auto selected correct answer.");
+        //     }
+        // }
     }
-    for(i=0; i < possibleOptions; i++){
-        if (optionButtons.children[i].textContent == correctSelection){
-            console.log("answer has been given")
-        }; //once user select an option then disabled all options
-    }
-// add function call to go to next question
 }
 
 // function for timer
