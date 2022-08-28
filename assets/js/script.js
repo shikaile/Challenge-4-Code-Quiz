@@ -10,14 +10,14 @@
 
 var score = 0;
 let randomOrder, currentQuestion = {};
-let count = 0;
+let numb = 0;
 let qNumber = 1
 let queue = [];
 
 $("#start").click(function(){
     $(".intro").hide()
     $(".quiz").show()
-    count = 0
+    numb = 0
     score = 0
     timer()
     questionOrder()
@@ -25,9 +25,9 @@ $("#start").click(function(){
 }); 
 
 $("#next").click(function(){
-    if(count < questions.length -1){
-        count++
-        questionOrder(count);
+    if(numb < questions.length -1){
+        numb++
+        displayQuestion(numb);
     }else{
     console.log("there are no more questions")
     }
@@ -42,14 +42,14 @@ var questionOrder = function() {
 // function to display and generate question and option buttons 
 var displayQuestion = ()=> {
     
-    let quest ='<h3>'+ questions[0].question +'</h3>';
-    let opts = '<button class="optionButton">'+ questions[0].options[0] +'</button>'
-        + '<button class="optionButton">'+ questions[0].options[1] +'</button>'
-        + '<button class="optionButton">'+ questions[0].options[2] +'</button>'
-        + '<button class="optionButton">'+ questions[0].options[3] +'</button>';
+    let quest ='<h3>'+ questions[numb].question +'</h3>';
+    let opts = '<button class="optionButton">'+ questions[numb].options[0] +'</button>'
+        + '<button class="optionButton">'+ questions[numb].options[1] +'</button>'
+        + '<button class="optionButton">'+ questions[numb].options[2] +'</button>'
+        + '<button class="optionButton">'+ questions[numb].options[3] +'</button>';
     
-    $("#question").append(quest);
-    $("#options").append(opts);
+    $("#question").html(quest);
+    $("#options").html(opts);
 
     const option = $(".optionButton");
 
@@ -63,7 +63,7 @@ var displayQuestion = ()=> {
 var optionSelected = function(answer){
 
     let selection = answer.textContent; //getting user selected option
-    let correctSelection = questions[count].answer; //getting correct answer from array
+    let correctSelection = questions[numb].answer; //getting correct answer from array
     const possibleOptions = optionButtons.children.length; //getting all option items
     
     if(selection == correctSelection){ //if user selected option is equal to array's correct answer
