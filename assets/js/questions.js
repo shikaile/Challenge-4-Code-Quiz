@@ -107,12 +107,12 @@ let questions = [
     {
     numb: 9,
     question: "Where is the JavaScript placed inside an HTML document or page?",
-    answer: "In the <body> and <head> sections.",
+    answer: "In the 'body' and 'head' sections.",
     options: [
-      "In the <meta> section.",
-      "In the <footer> section.",
-      "In the <body> and <head> sections.",
-      "In the <title> section."
+      "In the 'meta' section.",
+      "In the 'footer' section.",
+      "In the 'body' and 'head' sections.",
+      "In the 'title' section."
     ]
   },
 ];
