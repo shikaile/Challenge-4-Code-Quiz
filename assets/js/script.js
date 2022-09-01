@@ -29,6 +29,8 @@ $("#next").click(function(){
         numb++
         displayQuestion(numb);
     }else{
+        $(".quiz").hide();
+        $("#modalDone").show();
     console.log("there are no more questions")
     }
     
@@ -49,6 +51,8 @@ var displayQuestion = ()=> {
     
     $("#question").html(quest);
     $("#options").html(opts);
+    $("#user-score").html(score);
+
 
     const option = $("#options").contents(['*']);
 
@@ -62,13 +66,22 @@ var displayQuestion = ()=> {
 var check = function(answer){
     let selection = answer.textContent; //getting user selected option
 
+    const possibleOptions = $("#options").children(['*']);
+
     if(selection == questions[numb].answer){ //if user selected option is equal to array's correct answer
-        // userScore += 1; //upgrading score value with 1
-        //adding green background to correct selected option
+        score += 1; //upgrading score value with 1
+        answer.classList.add("correct"); //adding green background to correct selected option
         console.log("Correct Answer");
     }else{
          //adding red background to correct selected option
+        timer -= 3;
+        answer.classList.add("incorrect");
         console.log("Wrong Answer");
+    }
+    // non-functioning attribute to remove option to select a new answer once selection has already been made
+    for (i=0; i < possibleOptions; i++){
+        $("#options").children([i]).off();
+        console.log("option already selected");
     }
 }
 
@@ -79,6 +92,8 @@ var timer = function(){
         $('#timeLeft').html('00:'+sec);
         sec--;
         if (sec <= 0) {
-            $('#timeLeft').html('No Time Left');
+            $('#timeLeft').hide();
+            $(".quiz").hide();
+            $("#modalDone").show();
         }
     }, 1000)};
