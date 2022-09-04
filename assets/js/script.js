@@ -11,8 +11,6 @@
 var score = 0;
 let randomOrder, currentQuestion = {};
 let numb = 0;
-let qNumber = 1
-let queue = [];
 
 $("#start").click(function(){
     $(".intro").hide()
@@ -24,7 +22,7 @@ $("#start").click(function(){
     displayQuestion()
 }); 
 
-$("#next").click(function(){
+var next = function(){
     if(numb < questions.length -1){
         numb++
         displayQuestion(numb);
@@ -32,11 +30,9 @@ $("#next").click(function(){
         $(".quiz").hide();
         $("#modalDone").show();
         $('#timeLeft').hide();
-
-    console.log("there are no more questions")
     }
     
-});
+};
 
 var questionOrder = function() {
     randomOrder = questions.sort(() => Math.random() - .5)
@@ -60,7 +56,7 @@ var displayQuestion = ()=> {
 
     // set onclick attribute to all available options
     for(i=0; i < option.length; i++){
-        option[i].setAttribute("onclick", "check(this)", "disable(this)");
+        option[i].setAttribute("onclick", "check(this)");
     }
 };
 
@@ -73,17 +69,15 @@ var check = function(answer){
     if(selection == questions[numb].answer){ //if user selected option is equal to array's correct answer
         score ++; //upgrading score value with 1
         answer.classList.add("correct"); //adding green background to correct selected option
-        console.log("Correct Answer");
     }else{
          //adding red background to correct selected option
         // timer -= 3000;
         answer.classList.add("incorrect");
-        console.log("Wrong Answer");
-        console.log(possibleOptions);
     }
     possibleOptions.forEach(element => {
         element.disabled = true
     });
+    setTimeout(next, 1000);
 }
 
 // function for timer
