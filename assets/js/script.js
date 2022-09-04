@@ -1,10 +1,6 @@
 
-// WHEN I answer a question
-// THEN I am presented with another question
 // WHEN I answer a question incorrectly
 // THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
 
@@ -27,11 +23,9 @@ var next = function(){
         numb++
         displayQuestion(numb);
     }else{
-        $(".quiz").hide();
-        $("#modalDone").show();
-        $('#timeLeft').hide();
+        end();
+        return(timer);
     }
-    
 };
 
 var questionOrder = function() {
@@ -71,7 +65,6 @@ var check = function(answer){
         answer.classList.add("correct"); //adding green background to correct selected option
     }else{
          //adding red background to correct selected option
-        // timer -= 3000;
         answer.classList.add("incorrect");
     }
     possibleOptions.forEach(element => {
@@ -82,13 +75,48 @@ var check = function(answer){
 
 // function for timer
 var timer = function(){
-    var sec = 60;
-    var timer = setInterval(function(){
-        $('#timeLeft').html('00:'+sec);
+    var sec = 10;
+    var time = setInterval(function(){
+        $('#timeLeft').html(sec);
         sec--;
-        if (sec <= 0) {
-            $('#timeLeft').hide();
-            $(".quiz").hide();
-            $("#modalDone").show();
+        if (sec <= 0)  {
+            clearInterval(time);
+            end();
         }
     }, 1000)};
+
+var end = function(){
+    $(".quiz").hide();
+    $('#timeLeft').hide();
+    $("#modalDone").show();
+    setTimeout(saveScore, 5000);
+}
+
+var saveScore = function(){
+    $("#modalDone").hide();
+    $("#main").append(
+$("<h3/>").text("Add your name to save your high score!"),  
+
+$("<form/>", {
+    action: '#',
+    method: '#'
+    }).append(
+    // Create <form> Tag and Appending in HTML Div form1.
+    $("<input/>", {
+    type: 'text',
+    id: 'vname',
+    name: 'name',
+    placeholder: 'Your Name'
+    }), // Creating Input Element With Attribute.
+    
+    $("<div/>", {
+    score
+    }), 
+    
+    $("<br/>"), $("<input/>", {
+    type: 'submit',
+    id: 'submit',
+    value: 'Submit'
+    })))
+}
+

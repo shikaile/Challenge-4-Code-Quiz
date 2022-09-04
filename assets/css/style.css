@@ -4,7 +4,14 @@ body{
     justify-content: center;
     align-items: center;
     height: 400px;
-    background-color: bisque;
+    background-color:  #696969;
+}
+.main{
+    display: flex;
+    flex-flow: column, wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #696969;
 }
 
 .hide {
