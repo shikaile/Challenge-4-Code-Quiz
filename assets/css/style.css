@@ -57,8 +57,9 @@ body{
     border: 1px solid #f5c6cb;
 }
 .optionButton.disabled{
-    pointer-events: none;
-    background: orange
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 

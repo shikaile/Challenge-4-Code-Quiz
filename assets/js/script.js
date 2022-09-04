@@ -31,6 +31,8 @@ $("#next").click(function(){
     }else{
         $(".quiz").hide();
         $("#modalDone").show();
+        $('#timeLeft').hide();
+
     console.log("there are no more questions")
     }
     
@@ -58,7 +60,7 @@ var displayQuestion = ()=> {
 
     // set onclick attribute to all available options
     for(i=0; i < option.length; i++){
-        option[i].setAttribute("onclick", "check(this)");
+        option[i].setAttribute("onclick", "check(this)", "disable(this)");
     }
 };
 
@@ -66,23 +68,22 @@ var displayQuestion = ()=> {
 var check = function(answer){
     let selection = answer.textContent; //getting user selected option
 
-    const possibleOptions = $("#options").children(['*']);
+    const possibleOptions = document.querySelectorAll('.optionButton');
 
     if(selection == questions[numb].answer){ //if user selected option is equal to array's correct answer
-        score += 1; //upgrading score value with 1
+        score ++; //upgrading score value with 1
         answer.classList.add("correct"); //adding green background to correct selected option
         console.log("Correct Answer");
     }else{
          //adding red background to correct selected option
-        timer -= 3;
+        // timer -= 3000;
         answer.classList.add("incorrect");
         console.log("Wrong Answer");
+        console.log(possibleOptions);
     }
-    // non-functioning attribute to remove option to select a new answer once selection has already been made
-    for (i=0; i < possibleOptions; i++){
-        $("#options").children([i]).off();
-        console.log("option already selected");
-    }
+    possibleOptions.forEach(element => {
+        element.disabled = true
+    });
 }
 
 // function for timer
